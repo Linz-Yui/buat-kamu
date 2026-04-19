@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Buat Kamu</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffebee;
+            text-align: center;
+        }
+
+        h1 {
+            color: #d32f2f;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 10px;
+        }
+
+        #btnMau {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        #btnGamau {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="pertanyaan">
+        <h1>Mau gak jadi pacar aku? ❤️</h1>
+        <div class="container">
+            <button id="btnMau" onclick="terima()">Mau</button>
+            <button id="btnGamau" onmouseover="lari(this)">Gak Mau</button>
+        </div>
+    </div>
+
+    <div id="jawaban" class="hidden">
+        <h1>Yeeay! I love you! ❤️✨</h1>
+        <p>Chat aku ya kalau udah sampai sini!</p>
+    </div>
+
+    <script>
+        function lari(tombol) {
+            // Menentukan posisi acak
+            const x = Math.random() * (window.innerWidth - tombol.clientWidth);
+            const y = Math.random() * (window.innerHeight - tombol.clientHeight);
+            
+            tombol.style.position = "fixed";
+            tombol.style.left = x + "px";
+            tombol.style.top = y + "px";
+        }
+
+        function terima() {
+            document.getElementById('pertanyaan').classList.add('hidden');
+            document.getElementById('jawaban').classList.remove('hidden');
+            
+            // Opsional: Langsung kirim WA (Ganti nomor HP-mu di sini)
+            // window.location.href = "https://wa.me/628123456789?text=Aku%20mau%20jadi%20pacar%20kamu!";
+        }
+    </script>
+</body>
+</html>
